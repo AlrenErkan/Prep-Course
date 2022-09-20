@@ -27,7 +27,7 @@ function incrementarPorUno(array) {
   // y devuelve el array
   // Tu código:
   largo = array.length
-  for (i = 0; i<largo; i++){
+  for (let i = 0; i<largo; i++){
     array[i]++
   }
   return array
@@ -59,10 +59,19 @@ function dePalabrasAFrase(palabras) {
   // con espacios entre cada palabra
   // Ejemplo: ['Hello', 'world!'] -> 'Hello world!'
   // Tu código:
-  largo = palabras.length
-  for (i = 0; i<largo; i++){
-     
+  let largo = palabras.length;
+  var resultado = "";
+  var primeraVuelta = true;
+  for (let i = 0; i < largo; i++){
+    if (primeraVuelta){
+      var resultado = palabras[i];
+      var primeraVuelta = false
+    }
+    else{
+      var resultado = resultado + " " + palabras[i];
+    }
   }
+  return resultado;
 }
 
 
@@ -70,9 +79,9 @@ function arrayContiene(array, elemento) {
   // Comprueba si el elemento existe dentro de "array"
   // Devuelve "true" si está, o "false" si no está
   // Tu código:
-  var largo = array.length;
+  let largo = array.length;
 
-  for (i=0; i < largo; i++){
+  for (let i=0; i < largo; i++){
     if (array[i] === elemento){
       return true;
     }
@@ -85,9 +94,9 @@ function agregarNumeros(numeros) {
   // "numeros" debe ser un arreglo de enteros (int/integers)
   // Suma todos los enteros y devuelve el valor
   // Tu código:
-  var largo = numeros.length;
-  var resultado = 0;
-  for (i = 0; i < largo; i++){
+  let largo = numeros.length;
+  let resultado = 0;
+  for (let i = 0; i < largo; i++){
     resultado = resultado + numeros[i];
   }
   return resultado;
@@ -98,7 +107,13 @@ function promedioResultadosTest(resultadosTest) {
   // "resultadosTest" debe ser una matriz de enteros (int/integers)
   // Itera (en un bucle) los elementos del array, calcula y devuelve el promedio de puntajes
   // Tu código:
-  
+  let largo = resultadosTest.length;
+  let resultado = 0;
+  for (let i = 0; i < largo; i++){
+    resultado = resultado + resultadosTest[i];
+  }
+  let rta = resultado / resultadosTest.length
+  return rta;
 }
 
 
@@ -106,15 +121,15 @@ function numeroMasGrande(numeros) {
   // "numeros" debe ser una matriz de enteros (int/integers)
   // Devuelve el número más grande
   // Tu código:
-  var largo = numeros.length;
-  var resultado = undefined;
+  let largo = numeros.length;
+  let resultado = null;
   
-  for (i=0; largo < i; i++){
-    if (resultado == undefined){
-      var resultado = numeros[i];
+  for (let i=0; largo < i; i++){
+    if (resultado == null){
+      let resultado = numeros[i];
     }
     else if (numeros [i] > resultado){
-      var resultado = numeros[i];
+      let resultado = numeros[i];
     }
   }
   return resultado;
